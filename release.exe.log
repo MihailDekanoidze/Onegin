@@ -1,0 +1,76 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Code\Onegin\release.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0040141E в функции alpha(). Попытка прочесть данные по адресу 0x00F66000. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0044371C (32-bit), Flags: Cmdre0, Thread: 0x2578 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0040141E in C:\Code\Onegin\release.exe: alpha()
+# 1 0x00401470 in C:\Code\Onegin\release.exe: mystrcmp()
+# 2 0x004016C7 in C:\Code\Onegin\release.exe: printcmp()
+# 3 0x0041C46D in C:\Code\Onegin\release.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Code\TX\TXLib.h
+Compiled:	Oct 27 2023 21:36:39, GNU g++ 9.2.0, std=201402L, MinGW Runtime 5.4, 32-bit, Debug
+Started:	Oct 27 2023 21:36:46
+
+Run file:	C:\Code\Onegin\release.exe
+Directory:	C:\Code\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Code\Onegin\release.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0040141E в функции alpha(). Попытка прочесть данные по адресу 0x00F66000. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x0044371C (32-bit), Flags: Cmdre0, Thread: 0x2578 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0040141E in C:\Code\Onegin\release.exe: alpha()
+# 1 0x00401470 in C:\Code\Onegin\release.exe: mystrcmp()
+# 2 0x004016C7 in C:\Code\Onegin\release.exe: printcmp()
+# 3 0x0041C46D in C:\Code\Onegin\release.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Code\TX\TXLib.h
+Compiled:	Oct 27 2023 21:36:39, GNU g++ 9.2.0, std=201402L, MinGW Runtime 5.4, 32-bit, Debug
+Started:	Oct 27 2023 21:36:46
+
+Run file:	C:\Code\Onegin\release.exe
+Directory:	C:\Code\Onegin
+
+--------------------------------------------------

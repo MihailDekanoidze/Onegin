@@ -3,15 +3,23 @@
         "неправильно",
         "bubblesort",
         "charprint",
+        "charread",
         "countsort",
         "datamin",
+        "elemcount",
+        "elemsize",
         "iscmp",
         "isstr",
+        "mystrcmpbackward",
+        "mystrcmptoward",
         "needsort",
         "posmin",
         "ptrlines",
         "selectionsort",
         "stringcount",
-        "strsort"
+        "stringinfo",
+        "strsort",
+        "Structptr",
+        "textinfo"
     ]
 }

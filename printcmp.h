@@ -1,6 +1,6 @@
 #ifndef PRINT_CMP_H
 #define PRINT_CMP_H
 
-void printcmp(char* str1, char* str2);
+void printcmp(stringinfo* str1, stringinfo* str2, int format);
 
 #endif // PRINT_CMP_H

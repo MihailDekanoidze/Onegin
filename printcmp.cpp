@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include "mystrcmp.h"
 
-void printcmp(char* str1, char* str2)
+void printcmp(StringInfo* str1, StringInfo* str2, int format)
 {
     int iscmp = 0;
-    iscmp = mystrcmp(str1, str2);
-    if (iscmp == 1)
+    iscmp = mystrcmp(str1, str2, format);
+    if (iscmp > 0)
     {
-        printf("str1 = %s > str2 = %s\n", str1, str2);
+        printf("str1 = %s > str2 = %s\n", str1->address, str2->address);
     }
     else if (iscmp == 0)
     {
-        printf("str1 = %s = str2 = %s\n", str1, str2);
+        printf("str1 = %s = str2 = %s\n", str1->address, str2->address);
     }
     else
     {
-        printf("str1 = %s < str2 = %s\n", str1, str2);
+        printf("str1 = %s < str2 = %s\n", str1->address, str2->address);
     }
 }
