@@ -10,19 +10,18 @@ int fsize(FILE* file)
     begin = ftell(file);
     fseek(file, 0, SEEK_END);
     end = ftell(file);
-    rewind(file);
 
     return end - begin;
 }
 
 
-struct TextInfo InputText(FILE* file)
+struct TextInfo InputText(TextInfo text, FILE* file)
 {
-    struct TextInfo text = {};
-
     int size = 0;
 
     size = fsize(file);
+
+    rewind(file);
 
     printf("size = %d\n", size);
 
@@ -30,6 +29,12 @@ struct TextInfo InputText(FILE* file)
 
     int elemcount = 0;
     elemcount = fread(buffer, sizeof(char), size, file);
+
+    /*if (elemcount != size)
+    {
+        text.buffer = NULL;
+        return text;
+    }*/
 
     buffer[elemcount] = '\0';
 

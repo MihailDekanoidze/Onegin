@@ -20,9 +20,13 @@ int StringCount(char* buffer, int charread)
 }
 
 
-struct TextInfo Lines(char* buffer, int charread)
+struct TextInfo Lines(TextInfo text)
 {
     struct TextInfo linesinfo = {};
+
+    char* buffer = (char*)text.buffer;
+
+    int charread = text.elemcount;
 
     int stringcount = StringCount(buffer, charread);
 
@@ -78,6 +82,7 @@ bool isstr(char* begin)
 
 int CountSort(struct StringInfo* lines, int stringcount)
 {
+
     int countsort = 0;
 
     for (int i = 0; i < stringcount; i++)
@@ -92,11 +97,13 @@ int CountSort(struct StringInfo* lines, int stringcount)
 }
 
 
-struct TextInfo Needsort (struct StringInfo* lines, int stringcount)
+struct TextInfo Needsort (TextInfo strings)
 {
     struct TextInfo needsortinfo = {};
 
-    int countsort = CountSort(lines, stringcount);
+    int countsort = CountSort((StringInfo*)strings.buffer, strings.elemcount);
+    int stringcount = strings.elemcount;
+    struct StringInfo* lines = (StringInfo*)strings.buffer;
     struct StringInfo* needsort = (struct StringInfo*) calloc(countsort, sizeof(struct StringInfo));
 
     int strsort = 0;

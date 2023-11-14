@@ -8,7 +8,7 @@ struct TextInfo {
 
 int fsize(FILE* file);
 
-struct TextInfo InputText(FILE* file);
+struct TextInfo InputText(TextInfo, FILE* file);
 
 void charprint(struct TextInfo text);
 

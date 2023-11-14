@@ -19,51 +19,60 @@ int main()
 
     struct TextInfo text = {};
 
-    text = InputText(fp);
+    text = InputText(text, fp);
+
+    if (text.buffer == NULL)
+    {
+        printf("File read error\n");
+
+        fclose(fp);
+
+        return 1;
+    }
 
     fclose(fp);
 
     struct TextInfo linesinfo = {};
 
-    linesinfo = Lines((char*)text.buffer, text.elemcount);
+    linesinfo = Lines(text);
 
-    struct StingInfo* lines = (struct StingInfo*) linesinfo.buffer;
-    int stringcount = linesinfo.elemcount;
+    //struct StingInfo* lines = (struct StingInfo*) linesinfo.buffer;
+    //int stringcount = linesinfo.elemcount;
 
     struct TextInfo needsortinfo = {};
 
-    needsortinfo = Needsort((struct StringInfo*)lines, stringcount);
+    needsortinfo = Needsort(linesinfo);
 
-    struct StringInfo* needsort = (struct StringInfo*)needsortinfo.buffer;
-    int countsort = needsortinfo.elemcount;
+    //struct StringInfo* needsort = (struct StringInfo*)needsortinfo.buffer;
+    //int countsort = needsortinfo.elemcount;
 
     /*printcmp(&needsort[0], &needsort[1], 1);
     printcmp(&needsort[2], &needsort[2], 1);
 
     printcmp(&needsort[0], &needsort[1], -1);
     printcmp(&needsort[2], &needsort[2], -1);*/
-
-    bubblesort((void*) needsort, sizeof(needsort[0]), countsort, mystrcmptoward);
+    printf("%s\n", ((StringInfo*)((char*)needsortinfo.buffer + 1 * sizeof(StringInfo)))->address);
+    bubblesort((void*) needsortinfo.buffer, sizeof(StringInfo), needsortinfo.elemcount, mystrcmptoward);
 
 
     FILE* toward = fopen("OneginSortedToward.txt", "w");
 
-    for (int i = 0; i < countsort; i++)
+    for (int i = 0; i < needsortinfo.elemcount; i++)
     {
-        fprintf(toward, "%s\n", needsort[i].address);
+        fprintf(toward, "%s\n", ((StringInfo*)((char*)needsortinfo.buffer + i * sizeof(StringInfo)))->address);
     }
 
     fclose(toward);
 
-    bubblesort((void*) needsort, sizeof(needsort[0]), countsort, mystrcmpbackward);
+    //bubblesort((void*) needsortinfo.buffer, sizeof(StringInfo), needsortinfo.elemcount, mystrcmpbackward);
 
     //selectionsort(needsort, countsort, format);
 
     FILE* backward = fopen("OneginSortedBackward.txt", "w");
 
-    for (int i = 0; i < countsort; i++)
+    for (int i = 0; i < needsortinfo.elemcount; i++)
     {
-        fprintf(backward, "%s\n", needsort[i].address);
+        fprintf(backward, "%s\n", ((char*)needsortinfo.buffer + i * sizeof(StringInfo)));
     }
 
     fclose(backward);
