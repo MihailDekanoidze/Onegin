@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "InputText.h"
-#include "ProcessingText.h"
-#include "Sorting.h"
+#include "..\include\InputText.h"
+#include "..\include\ProcessingText.h"
+#include "..\include\Sorting.h"
 
 void bubblesort(void* data, int elemsize, int length, int(*compare)(void* str1, void* str2))
 {
@@ -25,5 +25,5 @@ void bubblesort(void* data, int elemsize, int length, int(*compare)(void* str1, 
         if (nswaps == 0)
             break;
     }
-    printf("I finished bubblesort\n");
+    //printf("I finished bubblesort\n");
 }

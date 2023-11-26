@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "InputText.h"
-#include "ProcessingText.h"
-#include "Sorting.h"
+#include "..\include\InputText.h"
+#include "..\include\ProcessingText.h"
+#include "..\include\Sorting.h"
 
 
 

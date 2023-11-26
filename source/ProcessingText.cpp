@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <malloc.h>
-#include "ProcessingText.h"
-#include "InputText.h"
+#include "..\include\ProcessingText.h"
+#include "..\include\InputText.h"
 
 int StringCount(char* buffer, int charread)
 {
@@ -47,15 +47,15 @@ struct TextInfo Lines(TextInfo text)
         }
     }
 
-    for (int i = 0; i < stringcount; i++)
+    /*for (int i = 0; i < stringcount; i++)
     {
         printf("lines[%d] = %p\n", i, lines[i].address);
-    }
+    }*/
 
-    for (int i = 0; i < stringcount; i++)
+    /*for (int i = 0; i < stringcount; i++)
     {
         printf("lines[%d] = %s\n", i, lines[i].address);
-    }
+    }*/
 
 
     linesinfo.buffer = (void*)lines;
@@ -119,7 +119,7 @@ struct TextInfo Needsort (TextInfo strings)
     }
 
 
-    for (int i = 0; i < countsort; i++)
+    /*for (int i = 0; i < countsort; i++)
     {
         printf("address of {line[%d] = %s} is %p\n", i, needsort[i].address, needsort[i].address);
     }
@@ -127,7 +127,7 @@ struct TextInfo Needsort (TextInfo strings)
     for (int i = 0; i < countsort; i++)
     {
         printf("needsort[%d] = %p\n", i, needsort[i].address);
-    }
+    }*/
 
     needsortinfo.buffer = (void*)needsort;
     needsortinfo.elemcount = countsort;

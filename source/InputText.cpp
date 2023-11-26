@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
-#include "InputText.h"
+#include "..\include\InputText.h"
+
 
 int fsize(FILE* file)
 {
@@ -23,14 +24,14 @@ struct TextInfo InputText(TextInfo text, FILE* file)
 
     rewind(file);
 
-    printf("size = %d\n", size);
+    //printf("size = %d\n", size);
 
     char* buffer = (char*) calloc(size + 1, sizeof(char));
 
     int elemcount = 0;
     elemcount = fread(buffer, sizeof(char), size, file);
 
-    /*if (elemcount != size)
+    /*if (elemcount != size)          ///  Спросить
     {
         text.buffer = NULL;
         return text;
@@ -41,7 +42,7 @@ struct TextInfo InputText(TextInfo text, FILE* file)
     text.buffer = buffer;
     text.elemcount = elemcount;
 
-    printf("char_read = %d\n", elemcount);
+    //printf("char_read = %d\n", elemcount);
     //charprint(text);
 
     return text;

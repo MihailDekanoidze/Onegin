@@ -1,9 +1,9 @@
-g++ InputText.cpp -c
-g++ ProcessingText.cpp -c
-g++ mystrcmptoward.cpp -c
-g++ mystrcmpbackward.cpp -c
-g++ swap.cpp -c
-g++ bubblesort.cpp -c
-g++ main.cpp -c
+g++ source\InputText.cpp -c -o source\InputText.o
+g++ source\ProcessingText.cpp -c -o source\ProcessingText.o
+g++ source\mystrcmptoward.cpp -c -o source\mystrcmptoward.o
+g++ source\mystrcmpbackward.cpp -c -o source\mystrcmpbackward.o
+g++ source\swap.cpp -c -o source\swap.o
+g++ source\bubblesort.cpp -c -o source\bubblesort.o
+g++ source\main.cpp -c -o source\main.o
 
-g++ InputText.o ProcessingText.o mystrcmptoward.o mystrcmpbackward.o  swap.o bubblesort.o main.o -o release.exe
+g++ .\source\InputText.o .\source\ProcessingText.o .\source\mystrcmptoward.o .\source\mystrcmpbackward.o  .\source\swap.o .\source\bubblesort.o .\source\main.o -o release.exe

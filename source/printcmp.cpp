@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "mystrcmp.h"
+#include "..\include\Sorting.h"
 
 void printcmp(StringInfo* str1, StringInfo* str2, int format)
 {

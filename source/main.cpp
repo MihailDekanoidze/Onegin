@@ -2,9 +2,9 @@
 #include <TXLib.h>
 #include <malloc.h>
 
-#include "InputText.h"
-#include "ProcessingText.h"
-#include "Sorting.h"
+#include "..\include\InputText.h"
+#include "..\include\ProcessingText.h"
+#include "..\include\Sorting.h"
 
 
 int main()
@@ -51,7 +51,9 @@ int main()
 
     printcmp(&needsort[0], &needsort[1], -1);
     printcmp(&needsort[2], &needsort[2], -1);*/
-    printf("%s\n", ((StringInfo*)((char*)needsortinfo.buffer + 1 * sizeof(StringInfo)))->address);
+
+    //printf("%s\n", ((StringInfo*)((char*)needsortinfo.buffer + 1 * sizeof(StringInfo)))->address);
+
     bubblesort((void*) needsortinfo.buffer, sizeof(StringInfo), needsortinfo.elemcount, mystrcmptoward);
 
 
@@ -64,7 +66,7 @@ int main()
 
     fclose(toward);
 
-    //bubblesort((void*) needsortinfo.buffer, sizeof(StringInfo), needsortinfo.elemcount, mystrcmpbackward);
+    bubblesort((void*) needsortinfo.buffer, sizeof(StringInfo), needsortinfo.elemcount, mystrcmpbackward);
 
     //selectionsort(needsort, countsort, format);
 
@@ -72,7 +74,7 @@ int main()
 
     for (int i = 0; i < needsortinfo.elemcount; i++)
     {
-        fprintf(backward, "%s\n", ((char*)needsortinfo.buffer + i * sizeof(StringInfo)));
+        fprintf(backward, "%s\n", ((StringInfo*)((char*)needsortinfo.buffer + i * sizeof(StringInfo)))->address);
     }
 
     fclose(backward);
