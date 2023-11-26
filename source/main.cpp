@@ -9,7 +9,7 @@
 
 int main()
 {
-    FILE* fp = fopen("Onegin", "r");
+    FILE* fp = fopen("Onegin.txt", "r");
 
     if (fp == NULL)
     {
@@ -20,6 +20,7 @@ int main()
     struct TextInfo text = {};
 
     text = InputText(text, fp);
+
 
     if (text.buffer == NULL)
     {
@@ -32,6 +33,7 @@ int main()
 
     fclose(fp);
 
+
     struct TextInfo linesinfo = {};
 
     linesinfo = Lines(text);
@@ -42,6 +44,7 @@ int main()
     struct TextInfo needsortinfo = {};
 
     needsortinfo = Needsort(linesinfo);
+
 
     //struct StringInfo* needsort = (struct StringInfo*)needsortinfo.buffer;
     //int countsort = needsortinfo.elemcount;

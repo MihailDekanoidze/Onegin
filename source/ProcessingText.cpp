@@ -28,7 +28,9 @@ struct TextInfo Lines(TextInfo text)
 
     int charread = text.elemcount;
 
-    int stringcount = StringCount(buffer, charread);
+    int stringcount = StringCount(buffer, charread) + 1;
+
+    printf("stringcount  = %d\n", stringcount);
 
     struct StringInfo* lines = (struct StringInfo*) calloc(stringcount, sizeof(struct StringInfo));
     int ptrlines = 1;
