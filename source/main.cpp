@@ -79,6 +79,11 @@ int main()
     {
         fprintf(backward, "%s\n", ((StringInfo*)((char*)needsortinfo.buffer + i * sizeof(StringInfo)))->address);
     }
+    
+    free(needsortinfo.buffer);
+    free(linesinfo.buffer);
+    free(text.buffer);
+
 
     fclose(backward);
 }
