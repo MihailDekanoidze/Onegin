@@ -1,10 +1,11 @@
 #include <stdio.h>
-#include "..\include\Sorting.h"
+#include "../include/ProcessingText.h"
+#include "../include/Sorting.h"
 
-void printcmp(StringInfo* str1, StringInfo* str2, int format)
+void printcmp(struct StringInfo* str1, StringInfo* str2)
 {
     int iscmp = 0;
-    iscmp = mystrcmp(str1, str2, format);
+    iscmp = mystrcmptoward(str1, str2);
     if (iscmp > 0)
     {
         printf("str1 = %s > str2 = %s\n", str1->address, str2->address);

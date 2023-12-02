@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <malloc.h>
-#include "..\include\InputText.h"
+#include "../include/InputText.h"
 
 
-int fsize(FILE* file)
+size_t fsize(FILE* file)
 {
-    int begin = 0;
-    int end = 0;
+    size_t begin = 0;
+    size_t end = 0;
 
     begin = ftell(file);
     fseek(file, 0, SEEK_END);
@@ -18,7 +18,7 @@ int fsize(FILE* file)
 
 struct TextInfo InputText(TextInfo text, FILE* file)
 {
-    int size = 0;
+    size_t size = 0;
 
     size = fsize(file);
 
@@ -28,7 +28,7 @@ struct TextInfo InputText(TextInfo text, FILE* file)
 
     char* buffer = (char*) calloc(size + 1, sizeof(char));
 
-    int elemcount = 0;
+    size_t elemcount = 0;
     elemcount = fread(buffer, sizeof(char), size, file);
 
     /*if (elemcount != size)          ///  Спросить
@@ -51,10 +51,10 @@ struct TextInfo InputText(TextInfo text, FILE* file)
 
 void charprint(struct TextInfo text)
 {
-    int size = text.elemcount;
+    size_t size = text.elemcount;
     char* ptr = (char*) text.buffer;
 
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         printf("%c (%d)\n", ptr[i], ptr[i]);
     }

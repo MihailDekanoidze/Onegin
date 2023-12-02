@@ -3,10 +3,10 @@
 
 struct TextInfo {
                     void* buffer;
-                    int elemcount;
+                    size_t elemcount;
                 };
 
-int fsize(FILE* file);
+size_t fsize(FILE* file);
 
 struct TextInfo InputText(TextInfo, FILE* file);
 

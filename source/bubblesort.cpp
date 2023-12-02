@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "..\include\InputText.h"
-#include "..\include\ProcessingText.h"
-#include "..\include\Sorting.h"
+#include "../include/InputText.h"
+#include "../include/ProcessingText.h"
+#include "../include/Sorting.h"
 
 void bubblesort(void* data, int elemsize, int length, int(*compare)(void* str1, void* str2))
 {

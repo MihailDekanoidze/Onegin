@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <malloc.h>
-#include "..\include\ProcessingText.h"
-#include "..\include\InputText.h"
+#include "../include/ProcessingText.h"
+#include "../include/InputText.h"
 
-int StringCount(char* buffer, int charread)
+size_t StringCount(char* buffer, size_t charread)
 {
-    int stringcount = 0;
+    size_t stringcount = 0;
 
-    for (int i = 0; i < charread; i++)
+    for (size_t i = 0; i < charread; i++)
     {
         if ((buffer[i] == '\n') || (buffer[i] == '\0'))
             stringcount++;
@@ -26,18 +26,18 @@ struct TextInfo Lines(TextInfo text)
 
     char* buffer = (char*)text.buffer;
 
-    int charread = text.elemcount;
+    size_t charread = text.elemcount;
 
-    int stringcount = StringCount(buffer, charread) + 1;
+    size_t stringcount = StringCount(buffer, charread) + 1;
 
-    printf("stringcount  = %d\n", stringcount);
+    printf("stringcount  = %zu\n", stringcount);
 
     struct StringInfo* lines = (struct StringInfo*) calloc(stringcount, sizeof(struct StringInfo));
-    int ptrlines = 1;
-    int size = 0;
+    size_t ptrlines = 1;
+    size_t size = 0;
     lines[0].address = buffer;
 
-    for (int i = 0; i < charread; i++)
+    for (size_t i = 0; i < charread; i++)
     {
         if (buffer[i] == '\n')
         {
@@ -69,7 +69,7 @@ struct TextInfo Lines(TextInfo text)
 bool isstr(char* begin)
 {
     int flag = 0;
-    int i = 0;
+    size_t i = 0;
     while (begin[i] != '\0')
     {
         if ((islower(begin[i])) || (isupper(begin[i])))
@@ -82,12 +82,12 @@ bool isstr(char* begin)
         return false;
 }
 
-int CountSort(struct StringInfo* lines, int stringcount)
+size_t CountSort(struct StringInfo* lines, size_t stringcount)
 {
 
-    int countsort = 0;
+    size_t countsort = 0;
 
-    for (int i = 0; i < stringcount; i++)
+    for (size_t i = 0; i < stringcount; i++)
     {
         if (isstr(lines[i].address))
         {
@@ -103,14 +103,14 @@ struct TextInfo Needsort (TextInfo strings)
 {
     struct TextInfo needsortinfo = {};
 
-    int countsort = CountSort((StringInfo*)strings.buffer, strings.elemcount);
-    int stringcount = strings.elemcount;
+    size_t countsort = CountSort((StringInfo*)strings.buffer, strings.elemcount);
+    size_t stringcount = strings.elemcount;
     struct StringInfo* lines = (StringInfo*)strings.buffer;
     struct StringInfo* needsort = (struct StringInfo*) calloc(countsort, sizeof(struct StringInfo));
 
-    int strsort = 0;
+    size_t strsort = 0;
 
-    for (int i = 0; i < stringcount; i++)
+    for (size_t i = 0; i < stringcount; i++)
     {
         if (isstr(lines[i].address))
         {

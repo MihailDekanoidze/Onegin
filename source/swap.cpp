@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
-#include "..\include\Sorting.h"
+#include "../include/Sorting.h"
 
-void swap(const void* elem1, const void* elem2, int size)
+void swap(const void* elem1, const void* elem2, size_t size)
 {
     //printf("elem1 = %s\n", ((StringInfo*)elem1)->address);
     //printf("elem2 = %s\n", ((StringInfo*)elem2)->address);
@@ -15,13 +15,13 @@ void swap(const void* elem1, const void* elem2, int size)
         *((char*) elem2 + byte) = buffer;
     }*/
 
-    int i = 0;
+    size_t i = 0;
 
     uint64_t buffer64 = 0;
 
     //printf("size >> 3 = %d\n", size >> 3);
 
-    for (int i = 0; i < size >> 3; i++)
+    for (i = 0; i < size >> 3; i++)
     {
         //printf("ptr elem1 %p\n", elem1);
         //printf("ptr elem2 %p\n", elem2);

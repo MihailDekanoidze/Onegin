@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "..\include\InputText.h"
-#include "..\include\ProcessingText.h"
-#include "..\include\Sorting.h"
+#include "../include/InputText.h"
+#include "../include/ProcessingText.h"
+#include "../include/Sorting.h"
 
 int mystrcmpbackward(void* ptr1, void* ptr2)
 {

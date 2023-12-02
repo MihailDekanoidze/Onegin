@@ -3,16 +3,16 @@
 
 struct StringInfo {
     char* address;
-    int size;
+    size_t size;
 };
 
-int StringCount(char* buffer, int charread);
+size_t StringCount(char* buffer, size_t charread);
 
 struct TextInfo Lines(TextInfo);
 
 bool isstr(char* begin);
 
-int CountSort(struct StringInfo* lines, int stringcount);
+size_t CountSort(struct StringInfo* lines, size_t stringcount);
 
 struct TextInfo Needsort (TextInfo);
 

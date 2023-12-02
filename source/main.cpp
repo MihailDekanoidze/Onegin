@@ -1,15 +1,15 @@
 #include <stdio.h>
-#include <TXLib.h>
+//#include <TXLib.h>
 #include <malloc.h>
 
-#include "..\include\InputText.h"
-#include "..\include\ProcessingText.h"
-#include "..\include\Sorting.h"
+#include "../include/InputText.h"
+#include "../include/ProcessingText.h"
+#include "../include/Sorting.h"
 
 
 int main()
 {
-    FILE* fp = fopen("Onegin.txt", "r");
+    FILE* fp = fopen("../Onegin.txt", "r");
 
     if (fp == NULL)
     {
@@ -62,7 +62,7 @@ int main()
 
     FILE* toward = fopen("OneginSortedToward.txt", "w");
 
-    for (int i = 0; i < needsortinfo.elemcount; i++)
+    for (size_t i = 0; i < needsortinfo.elemcount; i++)
     {
         fprintf(toward, "%s\n", ((StringInfo*)((char*)needsortinfo.buffer + i * sizeof(StringInfo)))->address);
     }
@@ -75,7 +75,7 @@ int main()
 
     FILE* backward = fopen("OneginSortedBackward.txt", "w");
 
-    for (int i = 0; i < needsortinfo.elemcount; i++)
+    for (size_t i = 0; i < needsortinfo.elemcount; i++)
     {
         fprintf(backward, "%s\n", ((StringInfo*)((char*)needsortinfo.buffer + i * sizeof(StringInfo)))->address);
     }
